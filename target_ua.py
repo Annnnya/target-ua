@@ -32,10 +32,23 @@ def get_words(f_name, letters):
 
 
 def check_user_words(user_words, language_part, letters, dict_of_words):
-    pass
+    """
+    returns right words and missed words
+    """
+    fine_user_words = []
+    right_words = []
+    missed_words = []
+    for word in user_words:
+        if word[0] in letters and len(word)<=5:
+            fine_user_words.append(word)
+    for i in dict_of_words:
+        if i[0] in fine_user_words and i[1]==language_part:
+            right_words.append(i[0])
+        elif i[1]==language_part:
+            missed_words.append(i[0])
+    return right_words, missed_words
 
 
+         
 
-            
-
-print(get_words('C:/Users/asus/progrexp/lab_6/base.lst', ['й', 'ю', 'є', 'ф', 'ь']))
+print(check_user_words(['юрма', 'ютуб', 'юний'], 'noun', ['й', 'ю', 'є', 'ф', 'ь'], get_words('C:/Users/asus/progrexp/lab_6/base.lst', ['й', 'ю', 'є', 'ф', 'ь'])))

@@ -34,6 +34,9 @@ def get_words(f_name, letters):
 def check_user_words(user_words, language_part, letters, dict_of_words):
     """
     returns right words and missed words
+    >>> check_user_words(['ром', 'абродлд', 'сон'], 'noun',\
+['а','б','в','г','р'], [('ром','noun'), ('сон','noun')])
+    (['ром'], ['сон'])
     """
     fine_user_words = []
     right_words = []
@@ -48,7 +51,5 @@ def check_user_words(user_words, language_part, letters, dict_of_words):
             missed_words.append(i[0])
     return right_words, missed_words
 
-
-         
-
-print(check_user_words(['юрма', 'ютуб', 'юний'], 'noun', ['й', 'ю', 'є', 'ф', 'ь'], get_words('C:/Users/asus/progrexp/lab_6/base.lst', ['й', 'ю', 'є', 'ф', 'ь'])))
+import doctest
+doctest.testmod()
